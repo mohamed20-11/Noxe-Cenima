@@ -1,0 +1,18 @@
+
+<div class="alert alert-danger">
+  <p >TV Does not work yet!</p>
+</div>
+<!-- <button (click)="ShowData()">Show Session</button> -->
+<div *ngIf="Session">
+  <h2> Name: {{Session.First_name}} {{Session.Last_name}}</h2>
+  <h2>Eamail: {{Session.email}}</h2>
+  <h2>Age: {{Session.age}}</h2>
+</div>
+
+
+
+<div>
+  <h2></h2>
+  <input type="email" placeholder="Write Down Here" [(ngModel)]="MyModel"/>
+  <p>{{MyModel}}</p>
+</div>

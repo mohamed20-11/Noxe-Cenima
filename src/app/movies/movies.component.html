@@ -1,0 +1,12 @@
+
+<div class="container">
+  <div class="row">
+    <div *ngFor="let m of trendingMovies" class="col-md-2">
+      <div class="movie">
+        <img [src]="imgPrefix+m.poster_path" class="w-100">
+        <h5>{{m.title}}</h5>
+        <p>{{m.overview}}</p>
+      </div>
+    </div>
+  </div>
+</div>

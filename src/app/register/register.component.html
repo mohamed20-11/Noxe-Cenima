@@ -1,0 +1,168 @@
+<form (ngSubmit)="submitRgForm(registerForm)" [formGroup]="registerForm">
+  <div class="form-group">
+    <label for="first_name">First Name</label>
+    <input
+      type="text"
+      class="form-control input-mine mb-2"
+      id="First_name"
+      placeholder="Enter your first name"
+      formControlName="First_name"
+      required
+    />
+    <div
+      *ngIf="
+        registerForm.get('First_name')?.errors &&
+        registerForm.get('First_name')?.touched
+      "
+      class="alert alert-danger"
+    >
+      <p
+        class="m-0"
+        *ngIf="registerForm.get('First_name')?.getError('required')"
+      >
+        First Name is required
+      </p>
+      <p
+        class="m-0"
+        *ngIf="registerForm.get('First_name')?.getError('minlength')"
+      >
+        First Name must be at least 3 characters long
+      </p>
+      <p
+        class="m-0"
+        *ngIf="registerForm.get('First_name')?.getError('maxlength')"
+      >
+        First Name cannot be more than 16 characters long
+      </p>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="last_name">Last Name</label>
+    <input
+      type="text"
+      class="form-control input-mine mb-2"
+      id="last_name"
+      placeholder="Enter your last name"
+      formControlName="Last_name"
+      required
+    />
+    <div
+      *ngIf="
+        registerForm.get('Last_name')?.errors &&
+        registerForm.get('Last_name')?.touched
+      "
+      class="alert alert-danger"
+    >
+      <p
+        class="m-0"
+        *ngIf="registerForm.get('Last_name')?.getError('required')"
+      >
+        Last Name is required
+      </p>
+      <p
+        class="m-0"
+        *ngIf="registerForm.get('Last_name')?.getError('minlength')"
+      >
+        Last Name must be at least 3 characters long
+      </p>
+      <p
+        class="m-0"
+        *ngIf="registerForm.get('Last_name')?.getError('maxlength')"
+      >
+        Last Name cannot be more than 16 characters long
+      </p>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="email">Email</label>
+    <input
+      type="email"
+      class="form-control input-mine mb-2"
+      id="email"
+      placeholder="Enter your email address"
+      formControlName="email"
+      required
+    />
+    <div
+      *ngIf="
+        registerForm.get('email')?.errors && registerForm.get('email')?.touched
+      "
+      class="alert alert-danger"
+    >
+      <p class="m-0" *ngIf="registerForm.get('email')?.getError('required')">
+        Email is required
+      </p>
+      <p class="m-0" *ngIf="registerForm.get('email')?.getError('email')">
+        Email Format Required
+      </p>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="age">Age</label>
+    <input
+      type="number"
+      class="form-control input-mine mb-2"
+      id="age"
+      placeholder="Enter your age"
+      formControlName="age"
+      required
+    />
+    <div
+      *ngIf="
+        registerForm.get('age')?.errors && registerForm.get('age')?.touched
+      "
+      class="alert alert-danger"
+    >
+      <p class="m-0" *ngIf="registerForm.get('age')?.getError('required')">
+        Age is required
+      </p>
+      <p class="m-0" *ngIf="registerForm.get('age')?.getError('min')">
+        Age must be at least 18
+      </p>
+      <p class="m-0" *ngIf="registerForm.get('age')?.getError('max')">
+        Age cannot be more than 100
+      </p>
+    </div>
+  </div>
+  <!-- <div class="form-group">
+    <label for="username">Username</label>
+    <input type="text" class="form-control" id="username" placeholder="Enter your username" formControlName="username" required>
+  </div> -->
+  <div class="form-group">
+    <label for="password">Password</label>
+    <input
+      type="password"
+      class="form-control input-mine"
+      id="password"
+      placeholder="Enter your password"
+      formControlName="password"
+      required
+    />
+    <div
+      *ngIf="
+        registerForm.get('password')?.errors &&
+        registerForm.get('password')?.touched
+      "
+      class="alert alert-danger"
+    >
+      <p class="m-0" *ngIf="registerForm.get('password')?.getError('required')">
+        Password is required
+      </p>
+      <!-- <p class="m-0" *ngIf="registerForm.get('password')?.getError('pattern')">
+        Password must start with a Capital litter for Security
+      </p> -->
+      <p
+        class="m-0"
+        *ngIf="registerForm.get('password')?.getError('minlength')"
+      >
+        Password must be at least 8 characters long
+      </p>
+    </div>
+  </div>
+  <button [disabled]="registerForm.invalid" type="submit" class="btn btn-info">
+    Register
+  </button>
+</form>
+<br />
+<hr />
+<br />
